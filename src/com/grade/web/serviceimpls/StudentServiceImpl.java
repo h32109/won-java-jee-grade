@@ -29,15 +29,16 @@ public class StudentServiceImpl implements StudentService {
 	public String createHakbun(StudentBean param) {
 		Random ran = new Random();
 		String temp = String.format("%s-%s%03d" , 
-				createYear(), param.getSsn().substring(7,8), ran.nextInt(999)+1) ;
+				createYear(),
+				param.getSsn().substring(7,8),
+				ran.nextInt(999)+1) ;
 		return temp;
 	}
 
 	@Override
 	public String createYear() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-		String year = sdf.format(new Date());
-		return year;
+		return sdf.format(new Date());
 	}
 
 	@Override
@@ -52,10 +53,10 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public String createtotal(StudentBean param) {
-		String total = String.valueOf((Integer.parseInt(param.getEng())
+		String total = String.valueOf(Integer.parseInt(param.getEng())
 				+Integer.parseInt(param.getKor())
 				+Integer.parseInt(param.getMath())
-				+Integer.parseInt(param.getSociety())));
+				+Integer.parseInt(param.getSociety()));
 		return total;
 	}
 	
